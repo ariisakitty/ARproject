@@ -1,0 +1,37 @@
+<body>
+    <h1>Neofetch Result:</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody id="result-body">
+      </tbody>
+    </table>
+    
+    <script>
+      var result = JSON.parse('{{ result|safe }}');
+      var tbody = document.getElementById('result-body');
+      
+      // Iterate over the JSON object and create rows in the table
+      for (var key in result) {
+        if (result.hasOwnProperty(key)) {
+          var tr = document.createElement('tr');
+          var tdKey = document.createElement('td');
+          var tdValue = document.createElement('td');
+          
+          tdKey.textContent = key;
+          tdValue.textContent = result[key];
+          
+          tr.appendChild(tdKey);
+          tr.appendChild(tdValue);
+          
+          tbody.appendChild(tr);
+        }
+      }
+    </script>
+  </body>
+  
