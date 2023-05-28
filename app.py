@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from datetime import datetime
-from sys_config import run_neofetch_ext
+# from sys_config import run_neofetch_ext
 
 app = Flask(__name__)
 
@@ -104,3 +104,4 @@ def DCR2():
 
 if __name__ == '__main__':
     app.run()
+    # app.run(host='0.0.0.0', port=5000)
