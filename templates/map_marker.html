@@ -1,0 +1,27 @@
+<div id="map" style="height: 600px; width: 800px; margin: 0 auto;"></div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GVo0ltPN6bJkDwhtcPJxxEwI97q9cDU&callback=initMap" async defer></script>
+<script>
+  function initMap() {
+    const init_coord = { lat: 39.051657855380334, lng: -84.65691948680353 };
+    const marker_coord = { lat: {{ robot_coord.lat }}, lng: {{ robot_coord.lng }}};
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: init_coord,
+      zoom: 16,
+      mapTypeId: 'satellite', // Set the default map type to 'satellite'
+    });
+
+    // Customize the marker
+    const marker = new google.maps.Marker({
+      position: marker_coord,
+      map: map,
+      title: "Custom Marker",
+      icon: {
+        url: "/static/marker.png",
+        scaledSize: new google.maps.Size(40, 40), // Adjust the size here
+      },
+    });
+  }
+</script>

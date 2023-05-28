@@ -1,0 +1,28 @@
+{% include 'head.html' %}
+<body>
+    {% include 'nav_main.html' %}
+
+    {% include 'nav_robot.html' %}
+
+    <div style="padding-top: 100px">
+      {% if robot != None %}
+      <div class="container-sm mt-5">
+        {% include 'sys_last_checked.html' %}
+      </div>
+      <div class="container-sm mt-5">
+        {% include 'sys_config.html' %}
+      </div>  
+      <div class="container-sm mt-5">
+        {% include 'sys_status.html' %}
+      </div>  
+      <div class="container-sm mt-5">
+        {% include 'robot_app_status.html' %}
+      </div>
+      <div class="container mt-5">
+        {% include 'map_marker.html' %}
+      </div>   
+    {% endif %}
+    </div>
+    
+    <div style="height: 1000px"></div>
+</body>
